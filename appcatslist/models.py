@@ -19,8 +19,13 @@ categories = (
 class UserProfile(models.Model):
     user = models.OneToOneField('auth.user')
     username = models.CharField(max_length=30)
+    userdescription = models.TextField(null=True)
     preferredcity = models.CharField(max_length=30, choices=cities, null=True, blank=True)
     profilepicture = models.ImageField(upload_to='profile_photos', null=True, blank=True, name='profile photo')
+
+
+class CategoryList(models.Model):
+    category = models.CharField(max_length=50, choices=categories)
 
 
 class OfferPost(models.Model):
@@ -28,5 +33,12 @@ class OfferPost(models.Model):
     title = models.CharField(max_length=50)
     description = models.TextField()
     price = models.FloatField()
-    category = models.CharField(max_length=20, choices=categories)
+    category = models.ForeignKey(CategoryList)
     location = models.CharField(max_length=20, choices=cities)
+    furniture = models.NullBooleanField()
+    food = models.NullBooleanField()
+    catnip = models.NullBooleanField()
+    toys = models.NullBooleanField()
+    catsitting = models.NullBooleanField()
+    cooking = models.NullBooleanField()
+    cleaning = models.NullBooleanField()
