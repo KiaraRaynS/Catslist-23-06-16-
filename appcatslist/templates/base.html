@@ -1,11 +1,27 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<title>Catslist</title>
-{% block headcontent %}
-{% endblock %}
+  <meta charset='utf-8'>
+  <title>Catslist</title>
+  <link rel='stylesheet' href="{% static 'appcatslist/css/bootstrap.css' %}"/>
+  {% block headcontent %}
+  {% endblock %}
 </head>
+
 <body>
-{% block bodycontent %}
-{% endblock %}
+  <div class='container'>
+    <a href="{% url 'indexview' %}">Home</a>
+    <!-- If logged in -->
+    {% if request.user.is_authenticated %}
+    <a href="{% url 'profileview' %}">Profile</a>
+    <!-- If not logged in -->
+    {% else %}
+    <a href="{% url 'registerview' %}">Register</a>
+    {% endif %}
+    {% block bodycontent %}
+    {% endblock %}
+  </div>
 </body>
+</html>
