@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 
 {% block bodycontent %}
-  <h1>Welcome to CatList</h1>
+  <h1>Welcome to CatList =^..^=</h1>
   <h2>Available cities</h2>
   {% for city in cities %}
-  <a class='btn btn-default' href="{% url 'indexview' %}/cities/{{ city.city }}">{{ city.city }}</a>
+  <a class='btn btn-default' href="{% url 'citylistview' city.city %}">{{ city.city }}</a>
   {% endfor %}
 {% endblock %}
 

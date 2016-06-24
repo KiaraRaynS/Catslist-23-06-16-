@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.contrib.auth.views import logout, login
 from django.conf import settings
 from django.conf.urls.static import static
-from appcatslist.views import IndexView, RegisterView, ProfileView
+from appcatslist.views import IndexView, RegisterView, ProfileView, CityListView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -27,4 +27,5 @@ urlpatterns = [
     url(r'login/$', login, name='login'),
     url(r'^register/$', RegisterView.as_view(), name='registerview'),
     url(r'^accounts/profile/$', ProfileView.as_view(), name='profileview'),
+    url(r'^cities/(?P<city>\w+)/$', CityListView.as_view(), name='citylistview')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
-from django.views.generic import TemplateView, CreateView, UpdateView
-from appcatslist.models import UserProfile, City, CategoryList
+from django.views.generic import TemplateView, CreateView, UpdateView, ListView
+from appcatslist.models import UserProfile, City, CategoryList, OfferPost
 from django.core.urlresolvers import reverse_lazy
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
@@ -32,3 +32,11 @@ class ProfileView(UpdateView):
 
     def get_object(self, queryset=None):
         return self.request.user
+
+
+class CityListView(ListView):
+    template_name = 'citylistview.html'
+
+    def get_queryset(self):
+        city = self.kwargs['city']
+        return OfferPost.objects.filter(city__city=city)
