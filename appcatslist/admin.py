@@ -1,5 +1,5 @@
 from django.contrib import admin
-from appcatslist.models import UserProfile, OfferPost, CategoryList
+from appcatslist.models import UserProfile, OfferPost, CategoryList, City
 
 # Register your models here.
 
@@ -20,3 +20,9 @@ class CategoryListAdmin(admin.ModelAdmin):
     list_display = ['category']
 
 admin.site.register(CategoryList, CategoryListAdmin)
+
+
+class CityAdmin(admin.ModelAdmin):
+    list_display = ['city']
+
+admin.site.register(City, CityAdmin)

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.views.generic import TemplateView, CreateView, UpdateView
-from appcatslist.models import UserProfile
+from appcatslist.models import UserProfile, City, CategoryList
 from django.core.urlresolvers import reverse_lazy
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
@@ -14,6 +14,7 @@ class IndexView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['loginform'] = AuthenticationForm()
+        context['cities'] = City.objects.all()
         return context
 
 

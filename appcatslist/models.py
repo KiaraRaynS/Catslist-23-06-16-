@@ -29,13 +29,17 @@ class CategoryList(models.Model):
     category = models.CharField(max_length=50, choices=categories)
 
 
+class City(models.Model):
+    city = models.CharField(max_length=50)
+
+
 class OfferPost(models.Model):
     user = models.ForeignKey(User)
     title = models.CharField(max_length=50)
     description = models.TextField()
     price = models.FloatField()
     category = models.ForeignKey(CategoryList)
-    location = models.CharField(max_length=20, choices=cities)
+    city = models.ForeignKey(City)
 
 
 @receiver(post_save, sender='auth.user')
