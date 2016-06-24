@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.contrib.auth.views import logout, login
 from django.conf import settings
 from django.conf.urls.static import static
 from appcatslist.views import IndexView, RegisterView, ProfileView
@@ -22,6 +23,8 @@ from appcatslist.views import IndexView, RegisterView, ProfileView
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', IndexView.as_view(), name='indexview'),
+    url(r'logout/$', logout, name='logout'),
+    url(r'login/$', login, name='login'),
     url(r'^register/$', RegisterView.as_view(), name='registerview'),
     url(r'^accounts/profile/$', ProfileView.as_view(), name='profileview'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

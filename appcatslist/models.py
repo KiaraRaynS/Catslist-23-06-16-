@@ -36,12 +36,6 @@ class OfferPost(models.Model):
     price = models.FloatField()
     category = models.ForeignKey(CategoryList)
     location = models.CharField(max_length=20, choices=cities)
-    furniture = models.NullBooleanField()
-    food = models.NullBooleanField()
-    catnip = models.NullBooleanField()
-    toys = models.NullBooleanField()
-    catsitting = models.NullBooleanField()
-    cooking = models.NullBooleanField()
 
 
 @receiver(post_save, sender='auth.user')
