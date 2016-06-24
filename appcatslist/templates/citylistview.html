@@ -1,4 +1,21 @@
 {% extends 'base.html' %}
 
 {% block bodycontent %}
+  {% for item in allitems %}
+    <br>
+    <p>{{ item.title }} {{ item.user }}</p>
+    <p>{{ item.price }}</p>
+    <hr>
+  {% endfor %}
+
+  <p>Item post</p>
+  {% for item in items %}
+    {{ item }}
+    {% endfor %}
+
+  <p>Service posts</p>
+  {% for item in services %}
+    {{ item }}
+  {% endfor %}
+
 {% endblock %}
