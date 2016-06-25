@@ -32,6 +32,14 @@ class CategoryList(models.Model):
         return str(self.category)
 
 
+class SubCategoryList(models.Model):
+    category = models.ForeignKey(CategoryList)
+    subcategory = models.CharField(max_length=50)
+
+    def __str__(self):
+        return str(self.subcategory)
+
+
 class City(models.Model):
     city = models.CharField(max_length=50)
 
@@ -44,7 +52,7 @@ class OfferPost(models.Model):
     title = models.CharField(max_length=50)
     description = models.TextField()
     price = models.FloatField()
-    category = models.ForeignKey(CategoryList)
+    subcategory = models.ForeignKey(SubCategoryList)
     city = models.ForeignKey(City)
 
 
