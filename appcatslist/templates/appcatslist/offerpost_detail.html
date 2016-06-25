@@ -6,4 +6,7 @@
   <p>Posted by: <a href="{% url 'userprofileview' offerpost.user.username %}"> {{ offerpost.user }}</a></p>
   <p>{{offerpost.description}}</p>
   <p>{{offerpost.price}}
+
+  <br>
+  <a href="{% url 'citylistview' offerpost.city %}">Back to listing</a>
 {% endblock %}
