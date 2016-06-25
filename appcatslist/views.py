@@ -50,7 +50,8 @@ class UserProfileView(TemplateView):
     template_name = 'userprofile.html'
 
     def get_queryset(self):
-        user = self.kwargs['pk']
+        user = self.kwargs['username']
+        return UserProfile.objects.filter(user__username=user)
 
 
 class CityListView(ListView):

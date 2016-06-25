@@ -15,7 +15,8 @@
     <a href="{% url 'indexview' %}">Home</a>
     <!-- If logged in -->
     {% if request.user.is_authenticated %}
-    <a href="{% url 'profileview' %}">Profile</a>
+    <a href="{% url 'userprofileview' user.username %}">View Profile</a>
+    <a href="{% url 'profileview' %}">Edit Profile</a>
     <a href="{% url 'logout' %}?next=/">Logout</a>
     <!-- If not logged in -->
     {% else %}

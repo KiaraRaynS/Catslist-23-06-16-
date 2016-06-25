@@ -26,7 +26,9 @@ urlpatterns = [
     url(r'logout/$', logout, name='logout'),
     url(r'login/$', login, name='login'),
     url(r'^register/$', RegisterView.as_view(), name='registerview'),
+    # User Edit Profile View
     url(r'^accounts/profile/$', ProfileView.as_view(), name='profileview'),
-    url(r'profile/(?P<pk>\d+)/$', UserProfileView.as_view(), name='userprofileview'),
-    url(r'^cities/(?P<city>\w+)/$', CityListView.as_view(), name='citylistview')
+    # View User Profile Details
+    url(r'profiledetails/(?P<username>\w+)/$', UserProfileView.as_view(), name='userprofileview'),
+    url(r'^cities/(?P<city>\w+)/$', CityListView.as_view(), name='citylistview'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
