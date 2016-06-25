@@ -53,6 +53,15 @@ class NewPostSubCategory(TemplateView):
         context['subcategories'] = SubCategoryList.objects.filter(category__category=category)
         return context
 
+
+class NewPostFinal(CreateView):
+    model = OfferPost
+    fields = ['title', 'description', 'price', 'city', 'photo']
+
+    def form_valid(self, form):
+        pass
+
+
 # User related Classes
 
 

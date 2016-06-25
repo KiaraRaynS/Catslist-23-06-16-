@@ -60,7 +60,7 @@ class OfferPost(models.Model):
     price = models.FloatField()
     subcategory = models.ForeignKey(SubCategoryList)
     city = models.ForeignKey(City)
-    postphoto = models.ImageField(upload_to='post_photos', name='photo', null=True, blank=True)
+    photo = models.ImageField(upload_to='post_photos', name='photo', null=True, blank=True)
 
     @property
     def photo_url(self):

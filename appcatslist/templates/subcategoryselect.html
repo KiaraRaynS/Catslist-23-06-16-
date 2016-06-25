@@ -3,6 +3,6 @@
 {% block bodycontent %}
   <h3>What kind of {{ category }} do you offer?</h3>
   {% for item in subcategories %}
-  <a class='btn btn-default' href="{{category}}">{{item}}</a>
+  <a class='btn btn-default' href="{% url 'newpostfinal' category item.subcategory %}">{{item}}</a>
     {% endfor %}
 {% endblock %}
