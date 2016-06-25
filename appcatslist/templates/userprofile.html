@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
 
 {% block bodycontent %}
-  <p>Html loaded</p>
+  <br>
+  <p><b>Username:</b> {{ user.username }}</p>
+  <br>
+  <img class='thumb' src="{{ user.userprofile.photo_url }}"/>
 {% endblock %}

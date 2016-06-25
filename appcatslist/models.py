@@ -24,6 +24,12 @@ class UserProfile(models.Model):
     preferredcity = models.CharField(max_length=30, choices=cities, null=True, blank=True)
     photo = models.ImageField(upload_to='profile_photos', null=True, blank=True, name='photo')
 
+    @property
+    def photo_url(self):
+        if self.photo:
+            return self.photo.url
+        return "http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons-256/rounded-glossy-black-icons-animals/016581-rounded-glossy-black-icon-animals-animal-cat4.png"
+
 
 class CategoryList(models.Model):
     category = models.CharField(max_length=50, choices=categories)
