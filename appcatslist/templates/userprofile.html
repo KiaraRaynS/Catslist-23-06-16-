@@ -2,7 +2,13 @@
 
 {% block bodycontent %}
   <br>
-  <p><b>Username:</b> {{ user.username }}</p>
+    {% for field in userinformation %}
+    <p><b>Username: </b>{{ field.user }}</p>
+    <img class='thumb' src="{{ field.photo_url }}">
+    {% endfor %}
   <br>
-  <img class='thumb' src="{{ user.userprofile.photo_url }}"/>
+  <p>Preferred city: {{ user.userprofile.preferredcity }}</p>
+  {% for post in listings %}
+    {{ post.title }}
+    {% endfor %}
 {% endblock %}

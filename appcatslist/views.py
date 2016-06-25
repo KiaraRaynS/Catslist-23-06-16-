@@ -51,7 +51,15 @@ class UserProfileView(TemplateView):
 
     def get_queryset(self):
         user = self.kwargs['username']
-        return UserProfile.objects.filter(user__username=user)
+        print(user)
+        return UserProfile.objects.get(user__username=user)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user = self.kwargs['username']
+        context['userinformation'] = UserProfile.objects.filter(user__username=user)
+        context['listings'] = OfferPost.objects.filter(user__username=user)
+        return context
 
 
 class CityListView(ListView):

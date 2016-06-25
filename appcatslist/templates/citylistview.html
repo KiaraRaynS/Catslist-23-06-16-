@@ -2,16 +2,16 @@
 
 {% block bodycontent %}
 
-  <p>Item post</p>
+  <h3>Item post</h3>
   {% for item in items %}
-    {{ item.title }}
-    {{ item.user }}
+    <b>{{ item.title }}</b>
+    <p><a href="{%url 'userprofileview' item.user %}">{{item.user}}</a></p>
     {% endfor %}
 
-  <p>Service posts</p>
+  <h3>Service posts</h3>
   {% for item in services %}
     {{ item.title }}
-    {{ item.user }}
+    <p><a href="{% url 'userprofileview' item.user %}">{{ item.user }}</a></p>
     {{ item.price }}
   {% endfor %}
 
