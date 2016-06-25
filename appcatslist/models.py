@@ -22,7 +22,7 @@ class UserProfile(models.Model):
     user = models.OneToOneField('auth.user')
     userdescription = models.TextField(null=True, blank=True)
     preferredcity = models.CharField(max_length=30, choices=cities, null=True, blank=True)
-    # profilepicture = models.ImageField(upload_to='profile_photos', null=True, blank=True, name='profile photo')
+    photo = models.ImageField(upload_to='profile_photos', null=True, blank=True, name='photo')
 
 
 class CategoryList(models.Model):

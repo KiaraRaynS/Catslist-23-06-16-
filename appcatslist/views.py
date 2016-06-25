@@ -38,12 +38,12 @@ class RegisterView(CreateView):
 
 class ProfileView(UpdateView):
     model = UserProfile
-    fields = ['userdescription', 'preferredcity']
+    fields = ['userdescription', 'preferredcity', 'photo']
     template_name = 'profile.html'
     success_url = reverse_lazy('profileview')
 
     def get_object(self, queryset=None):
-        return self.request.user
+        return self.request.user.userprofile
 
 
 class UserProfileView(TemplateView):
