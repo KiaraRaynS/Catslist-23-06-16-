@@ -34,6 +34,25 @@ class PostDetailView(DetailView):
         post = self.kwargs['pk']
         return OfferPost.objects.get(id=post)
 
+
+class NewPostCategory(TemplateView):
+    template_name = 'categoryselect.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['categories'] = CategoryList.objects.all()
+        return context
+
+
+class NewPostSubCategory(TemplateView):
+    template_name = 'subcategoryselect.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        category = self.kwargs['category']
+        context['subcategories'] = SubCategoryList.objects.filter(category__category=category)
+        return context
+
 # User related Classes
 
 

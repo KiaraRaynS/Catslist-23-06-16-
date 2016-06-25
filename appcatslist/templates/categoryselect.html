@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block bodycontent %}
+<h3>What would you like to offer?</h3>
+{% for item in categories %}
+<a class='btn btn-default' href="{% url 'newpostsubcategory' item.category %}">{{ item }}</a>
+  {% endfor %}
+{% endblock %}
