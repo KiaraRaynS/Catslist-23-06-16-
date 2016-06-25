@@ -9,6 +9,6 @@
   <br>
   <p>Preferred city: {{ user.userprofile.preferredcity }}</p>
   {% for post in listings %}
-    {{ post.title }}
+  <p><a href="{% url 'postdetailview' post.id %}">{{ post.title }}</a></p>
     {% endfor %}
 {% endblock %}
