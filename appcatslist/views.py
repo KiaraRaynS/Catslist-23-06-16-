@@ -132,10 +132,14 @@ class CityListView(ListView):
         return context
 
 
-class CityCategoryListView(ListView):
+class CityCategoryListView(TemplateView):
     template_name = 'citycategorylistview.html'
 
-    def get_queryset(self, **kwargs):
+    def get_context_data(self, **kwargs):
         city = self.kwargs['city']
-        category = self.kwargs['category']
-        return OfferPost.objects.filter(city__city=city)
+        categoryitem = self.kwargs['category']
+        category = CategoryList.objects.get(category=categoryitem)
+        context = super().get_context_data(**kwargs)
+        context['city'] = City.objects.get(city=city)
+        context['subcategories'] = SubCategoryList.objects.filter(category=category)
+        return context

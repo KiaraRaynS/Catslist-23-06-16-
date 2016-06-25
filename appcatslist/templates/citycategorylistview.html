@@ -1,5 +1,11 @@
 {% extends 'base.html' %}
 
 {% block bodycontent %}
-
+<h3>What kind of {{ category }} do you wish to look for?</h3>
+  {% for item in subcategories %}
+  <br>
+    <a class='btn btn-default' href="/">{{ item }}</a>
+  {% endfor %}
+  <br>
+  <p><a class='btn btn-white' href="{% url 'citylistview' city %}">Return to Categories</a></p>
 {% endblock %}
