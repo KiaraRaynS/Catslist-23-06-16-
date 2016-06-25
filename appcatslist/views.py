@@ -55,11 +55,17 @@ class NewPostSubCategory(TemplateView):
 
 
 class NewPostFinal(CreateView):
+    success_url = '/'
     model = OfferPost
     fields = ['title', 'description', 'price', 'city', 'photo']
 
     def form_valid(self, form):
-        pass
+        offerpost = form.save(commit=False)
+        offerpost.user = self.request.user
+        subcategoryname = self.kwargs['subcategory']
+        subcategory = SubCategoryList.objects.get(subcategory=subcategoryname)
+        offerpost.subcategory = subcategory
+        return super().form_valid(form)
 
 
 # User related Classes

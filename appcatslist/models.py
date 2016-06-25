@@ -66,7 +66,7 @@ class OfferPost(models.Model):
     def photo_url(self):
         if self.photo:
             return self.photo.url
-        return 'No photo given'
+        return 'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg'
 
 
 @receiver(post_save, sender='auth.user')

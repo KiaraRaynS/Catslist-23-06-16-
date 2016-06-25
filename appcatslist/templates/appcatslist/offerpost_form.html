@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 
 {% block bodycontent %}
-{{ form.as_p }}
-<p>Template loads</p>
+  <form type='' method='post' enctype='multipart/form-data'>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <br>
+    <input type='submit' value='Make Post'>
+  </form>
 {% endblock %}
