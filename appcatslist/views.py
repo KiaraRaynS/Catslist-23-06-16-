@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
-from django.views.generic import TemplateView, CreateView, UpdateView, ListView
+from django.views.generic import TemplateView, CreateView, UpdateView, ListView, DetailView
 from appcatslist.models import UserProfile, City, CategoryList, OfferPost, SubCategoryList
 from django.core.urlresolvers import reverse_lazy
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
@@ -26,6 +26,13 @@ class CityListingView(ListView):
         context['items'] = OfferPost.objects.filter(city__pk=city)
         return context
 
+
+class PostDetailView(DetailView):
+    model = OfferPost
+
+    def get_object(self):
+        post = self.kwargs['pk']
+        return OfferPost.objects.get(id=post)
 
 # User related Classes
 

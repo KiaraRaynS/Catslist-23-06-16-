@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block bodycontent %}
+  <h2>{{ offerpost.title }}</h2>
+  <p>Posted by: <a href="{% url 'userprofileview' offerpost.user.username %}"> {{ offerpost.user }}</a></p>
+  <p>{{offerpost.description}}</p>
+  <p>{{offerpost.price}}
+{% endblock %}

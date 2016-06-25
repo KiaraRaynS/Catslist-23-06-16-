@@ -6,13 +6,14 @@
   {% for item in items %}
     <b>{{ item.title }}</b>
     <p><a href="{%url 'userprofileview' item.user %}">{{item.user}}</a></p>
+    <p><a href="{%url 'postdetailview' item.id %}">Details</a></p>
     {% endfor %}
 
   <h3>Service posts</h3>
   {% for item in services %}
-    {{ item.title }}
+    <b>{{ item.title }}</b>
     <p><a href="{% url 'userprofileview' item.user %}">{{ item.user }}</a></p>
-    {{ item.price }}
+    <p><a href="{% url 'postdetailview' item.id %}">Details</a></p>
   {% endfor %}
 
 {% endblock %}
