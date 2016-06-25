@@ -112,6 +112,11 @@ class CityListView(ListView):
 
     def get_context_data(self, **kwargs):
         city = self.kwargs['city']
+        context = super().get_context_data(**kwargs)
+        context['city'] = City.objects.get(city=city)
+        context['categories'] = CategoryList.objects.all()
+        return context
+        """
         item1 = CategoryList.objects.all()[0]
         print(item1)
         item2 = CategoryList.objects.all()[1]
@@ -123,4 +128,14 @@ class CityListView(ListView):
         context['subcategory'] = SubCategoryList.objects.all()
         context['items'] = OfferPost.objects.filter(city__city=city).filter(subcategory__category=item1)
         context['services'] = OfferPost.objects.filter(city__city=city).filter(subcategory__category=item2)
+        """
         return context
+
+
+class CityCategoryListView(ListView):
+    template_name = 'citycategorylistview.html'
+
+    def get_queryset(self, **kwargs):
+        city = self.kwargs['city']
+        category = self.kwargs['category']
+        return OfferPost.objects.filter(city__city=city)
