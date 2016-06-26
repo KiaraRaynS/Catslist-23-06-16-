@@ -215,3 +215,11 @@ class SubCategorySortDateThumbView(TemplateView):
         context['subcategory'] = SubCategoryList.objects.get(subcategory=subcategory)
         context['offerposts'] = OfferPost.objects.filter(subcategory=subcategory)
         return context
+
+
+class SubCategorySortPriceAscThumbView(TemplateView):
+    template_name = 'subcategorysortpriceascthumbview.html'
+
+
+class SubCategorySortPriceDescThumbView(TemplateView):
+    template_name = 'subcategorysortpricedescthumbview.html'
