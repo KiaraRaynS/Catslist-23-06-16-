@@ -200,7 +200,7 @@ class SubCategorySortPriceAsc(TemplateView):
 
 
 class SubCategorySortDateGalleryView(TemplateView):
-    template_name = 'subcategorysortdatethumbview.html'
+    template_name = 'subcategorysortdategalleryview.html'
 
     def get_context_data(self, **kwargs):
         citykey = self.kwargs['city']
@@ -218,7 +218,7 @@ class SubCategorySortDateGalleryView(TemplateView):
 
 
 class SubCategorySortPriceAscGalleryView(TemplateView):
-    template_name = 'subcategorysortpriceascthumbview.html'
+    template_name = 'subcategorysortpriceascgalleryview.html'
 
     def get_context_data(self, **kwargs):
         citykey = self.kwargs['city']
@@ -234,7 +234,7 @@ class SubCategorySortPriceAscGalleryView(TemplateView):
 
 
 class SubCategorySortPriceDescGalleryView(TemplateView):
-    template_name = 'subcategorysortpricedescthumbview.html'
+    template_name = 'subcategorysortpricedescgalleryview.html'
 
     def get_context_data(self, **kwargs):
         citykey = self.kwargs['city']
