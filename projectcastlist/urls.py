@@ -22,6 +22,7 @@ from appcatslist.views import IndexView, RegisterView, ProfileView, CityListView
 from appcatslist.views import NewPostCategory, NewPostSubCategory, NewPostFinal, CityCategoryListView, CitySubCategoryListView
 from appcatslist.views import SubCategorySortPriceDesc, SubCategorySortPriceAsc, SubCategorySortDateGalleryView, SubCategorySortPriceAscGalleryView
 from appcatslist.views import SubCategorySortPriceDescGalleryView
+from appcatslist.views import OfferPostDateSortThumbView, OfferPostPriceDescThumbView, OfferPostPriceAscThumbView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -40,10 +41,14 @@ urlpatterns = [
     # Sort subcategory list
     url(r'^cities/(?P<city>\w+)/(?P<category>\w+)/(?P<subcategory>\w+)/sort/pricedesc/$', SubCategorySortPriceDesc.as_view(), name='subcategorysortpricedesc'),
     url(r'^cities/(?P<city>\w+)/(?P<category>\w+)/(?P<subcategory>\w+)/sort/priceasc/$', SubCategorySortPriceAsc.as_view(), name='subcategorysortpriceasc'),
-    # Thumbnail view
+    # Gallery view
     url(r'^cities/(?P<city>\w+)/(?P<category>\w+)/(?P<subcategory>\w+)/galleryview/$', SubCategorySortDateGalleryView.as_view(), name='subcategorysortdategalleryview'),
-    url(r'^cities/(?P<city>\w+)/(?P<category>\w+)/(?P<subcategory>\w+)/sort/pricedesc/thumbview/$', SubCategorySortPriceAscGalleryView.as_view(), name='offerpostpricedescgalleryview'),
-    url(r'^cities/(?P<city>\w+)/(?P<category>\w+)/(?P<subcategory>\w+)/sort/priceasc/thumbview/$', SubCategorySortPriceDescGalleryView.as_view(), name='offerpostpriceascgalleryview'),
+    url(r'^cities/(?P<city>\w+)/(?P<category>\w+)/(?P<subcategory>\w+)/sort/pricedesc/galleryview/$', SubCategorySortPriceAscGalleryView.as_view(), name='offerpostpricedescgalleryview'),
+    url(r'^cities/(?P<city>\w+)/(?P<category>\w+)/(?P<subcategory>\w+)/sort/priceasc/galleryview/$', SubCategorySortPriceDescGalleryView.as_view(), name='offerpostpriceascgalleryview'),
+    # Thumbnail View
+    url(r'^cities/(?P<city>\w+)/(?P<category>\w+)/(?P<subcategory>\w+)/thumbview/$', OfferPostDateSortThumbView.as_view(), name='offerpostdatesortthumbview'),
+    url(r'^cities/(?P<city>\w+)/(?P<category>\w+)/(?P<subcategory>\w+)/pricedesc/$', OfferPostPriceDescThumbView.as_view(), name='offerpostpricedescthumbview'),
+    url(r'^cities/(?P<city>\w+)/(?P<category>\w+)/(?P<subcategory>\w+)/priceasc/$', OfferPostPriceAscThumbView.as_view(), name='offerpostpriceascthumbview'),
     # Make New Post
     url(r'^newpost/$', NewPostCategory.as_view(), name='newpostcategory'),
     url(r'^newpost/(?P<category>\w+)/$', NewPostSubCategory.as_view(), name='newpostsubcategory'),

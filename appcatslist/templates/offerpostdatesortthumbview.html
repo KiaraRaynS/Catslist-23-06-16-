@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block bodycontent %}
+  <p>Sort by: </p>
+  <a class='btn btn-default' href="{% url 'offerpostdatesortthumbview' city category subcategory %}">Date</a>
+  <a class='btn btn-default' href="{% url 'offerpostpricedescthumbview' city category subcategory %}">Price Highest-Lowest</a>
+  <a class='btn btn-default' href="{% url 'offerpostpriceascthumbview' city category subcategory %}">Price Lowest-Highest</a>
+{% block thumbviewcontent %}
+  <p>View as:</p>
+  <a class='btn btn-default' href="{% url 'citysubcategorylistview' city category subcategory %}">List</a>
+  <a class='btn btn-default' href="{% url 'subcategorysortdategalleryview' city category subcategory %}">Gallery</a>
+
+
+{% endblock %}
+{% endblock %}

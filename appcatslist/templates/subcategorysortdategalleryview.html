@@ -8,6 +8,7 @@
   <a class='btn btn-default' href="{% url 'offerpostpricedescgalleryview' city category subcategory %}">Price Highest-Lowest</a>
   <p>View as:</p>
   <a class='btn btn-default' href="{% url 'citysubcategorylistview' city category subcategory %}">List</a>
+  <a href="{% url 'offerpostdatesortthumbview' city category subcategory %}">Thumbnails</a>
   <br>
   <hr>
   {% for item in offerposts %}
