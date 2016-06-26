@@ -9,5 +9,23 @@
 
   <p>View as:</p>
   <a class='btn btn-default' href="{% url 'subcategorysortpricedesc' city category subcategory %}">List</a>
+
+  {% for item in offerposts %}
+
+  <div class="row">
+      <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+              <img src="{{item.photo_url}}">
+                          <div class="caption">
+                            <h3>{{item.title}}</h3>
+                                <p>{{item.price}}$ {{item.date}}</p>
+                                <p><a href="{% url 'userprofileview' item.user %}" class="btn btn-primary" role="button">{{item.user}}</a> <a href="{% url 'postdetailview' item.id %}" class="btn btn-default" role="button">Details</a></p>
+                                                          </div>
+                                                              </div>
+                                                                </div>
+                                                              </div>
+
+  {% endfor %}
+
 {% endblock %}
 
