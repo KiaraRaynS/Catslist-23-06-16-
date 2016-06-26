@@ -1,0 +1,7 @@
+{% extends 'offerpostdatesortthumbview.html' %}
+
+{% block thumbviewcontent %}
+  <p>View as:</p>
+  <a class='btn btn-default' href="{% url 'subcategorysortpriceasc' city category subcategory %}">List</a>
+  <a class='btn btn-default' href="{% url 'offerpostpriceascgalleryview' city category subcategory %}">Gallery</a>
+{% endblock %}
