@@ -158,5 +158,5 @@ class CitySubCategoryListView(TemplateView):
         context = super().get_context_data(**kwargs)
         context['city'] = City.objects.get(city=city)
         context['category'] = CategoryList.objects.get(category=category)
-        context['offerposts'] = OfferPost.objects.filter(subcategory=subcategory)
+        context['listings'] = OfferPost.objects.filter(subcategory=subcategory)
         return context

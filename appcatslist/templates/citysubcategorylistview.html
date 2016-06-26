@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block bodycontent %}
+  {% for item in listings %}
+    <br>
+    {{ item.title }}
+    <a href="{% url 'userprofileview' item.user %}">{{item.user}}</a>
+    <p><a href="{% url 'postdetailview' item.id %}">Details</a></p>
+
+  {% endfor %}
+{% endblock %}
