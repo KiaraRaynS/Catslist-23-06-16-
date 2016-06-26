@@ -1,11 +1,17 @@
 {% extends 'base.html' %}
 
 {% block bodycontent %}
+  <p>Sort by: </p>
+  <a href="{% url 'subcategorysortpricedesc' city category subcategory %}">Price Highest-Lowest</a>
+  <h3>Displaying {{ subcategory }}</h3>
   {% for item in listings %}
     <br>
     {{ item.title }}
     <a href="{% url 'userprofileview' item.user %}">{{item.user}}</a>
+    {{ item.price }}
     <p><a href="{% url 'postdetailview' item.id %}">Details</a></p>
 
   {% endfor %}
+
+  <a href="{% url 'citycategorylistview' city category %}">Return to Subcategories</a>
 {% endblock %}

@@ -61,6 +61,7 @@ class OfferPost(models.Model):
     subcategory = models.ForeignKey(SubCategoryList)
     city = models.ForeignKey(City)
     photo = models.ImageField(upload_to='post_photos', name='photo', null=True, blank=True)
+    date = models.DateTimeField(auto_now_add=True)
 
     @property
     def photo_url(self):
