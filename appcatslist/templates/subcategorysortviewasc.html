@@ -2,15 +2,13 @@
 
 {% block bodycontent %}
   <p>Sort by:</p>
-  <ul>
-  <li><a href="{% url 'citysubcategorylistview' city category subcategory %}">Date</a></li>
-  <li><a href="{% url 'subcategorysortpricedesc' city category subcategory %}">Price Highest-Lowest</a></li>
-  </ul>
+    <a class='btn btn-default' href="{% url 'citysubcategorylistview' city category subcategory %}">Date</a>
+    <a class='btn btn-default' href="{% url 'subcategorysortpricedesc' city category subcategory %}">Price Highest-Lowest</a>
   <h3>Displaying items for {{ subcategory }}</h3>
   {% for item in listing %}
-    <p>{{ item.title }} <a href="{% url 'userprofileview' item.user %}">{{item.user}}</a></p>
+    <p><b>{{ item.title }}</b> <a href="{% url 'userprofileview' item.user %}">{{item.user}}</a></p>
     <p><a href="{% url 'postdetailview' item.id %}">Details</a></p>
-    {{ item.price }}
+    {{ item.price }}$
     {{ item.date }}
     <br>
     <hr>
