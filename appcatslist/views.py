@@ -220,6 +220,30 @@ class SubCategorySortDateThumbView(TemplateView):
 class SubCategorySortPriceAscThumbView(TemplateView):
     template_name = 'subcategorysortpriceascthumbview.html'
 
+    def get_context_data(self, **kwargs):
+        citykey = self.kwargs['city']
+        categorykey = self.kwargs['category']
+        subcategorykey = self.kwargs['subcategory']
+        subcategory = SubCategoryList.objects.get(subcategory=subcategorykey)
+        context = super().get_context_data(**kwargs)
+        context['city'] = City.objects.get(city=citykey)
+        context['category'] = CategoryList.objects.get(category=categorykey)
+        context['subcategory'] = SubCategoryList.objects.get(subcategory=subcategorykey)
+        context['offerposts'] = OfferPost.objects.filter(subcategory=subcategory)
+        return context
+
 
 class SubCategorySortPriceDescThumbView(TemplateView):
     template_name = 'subcategorysortpricedescthumbview.html'
+
+    def get_context_data(self, **kwargs):
+        citykey = self.kwargs['city']
+        categorykey = self.kwargs['category']
+        subcategorykey = self.kwargs['subcategory']
+        subcategory = SubCategoryList.objects.get(subcategory=subcategorykey)
+        context = super().get_context_data(**kwargs)
+        context['city'] = City.objects.get(city=citykey)
+        context['category'] = CategoryList.objects.get(category=categorykey)
+        context['subcategory'] = SubCategoryList.objects.get(subcategory=subcategory)
+        context['offerpost'] = OfferPost.objects.filter(subcategory=subcategory)
+        return context

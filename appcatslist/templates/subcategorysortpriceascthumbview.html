@@ -1,7 +1,13 @@
 {% extends 'base.html' %}
 
 {% block bodycontent %}
+  <h3>Showing items for {{subcategory}} sorted by price [Highest-Lowest]</h3>
 
-<p>Template Found </p>
+  <p>Sort by:</p>
+  <a class='btn btn-default' href="{% url 'subcategorysortdatethumbview' city category subcategory %}">Date</a>
+  <a class='btn btn-default' href="{% url 'offerpostpriceascthumbview' city category subcategory %}">Price Lowest-Highest</a>
+
+  <p>View as:</p>
+  <a class='btn btn-default' href="{% url 'subcategorysortpricedesc' city category subcategory %}">List</a>
 {% endblock %}
 
