@@ -2,8 +2,11 @@
 
 {% block bodycontent %}
   <p>Sort by: </p>
-  <a href="{% url 'subcategorysortpricedesc' city category subcategory %}">Price Highest-Lowest</a>
-  <h3>Displaying {{ subcategory }}</h3>
+  <ul>
+    <li><a href="{% url 'subcategorysortpriceasc' city category subcategory %}">Price Lowest-Highest</a></li>
+    <li><a href="{% url 'subcategorysortpricedesc' city category subcategory %}">Price Highest-Lowest</a></li>
+  </ul>
+  <h3>Displaying items for {{ subcategory }}</h3>
   {% for item in listings %}
     <br>
     {{ item.title }}

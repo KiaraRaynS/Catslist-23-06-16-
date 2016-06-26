@@ -159,7 +159,7 @@ class CitySubCategoryListView(TemplateView):
         context['city'] = City.objects.get(city=city)
         context['category'] = CategoryList.objects.get(category=category)
         context['subcategory'] = SubCategoryList.objects.get(subcategory=subcategory)
-        context['listings'] = OfferPost.objects.filter(subcategory=subcategory)
+        context['listings'] = OfferPost.objects.filter(subcategory=subcategory).order_by('-date')
         return context
 
 
@@ -178,4 +178,22 @@ class SubCategorySortPriceDesc(TemplateView):
         context['category'] = CategoryList.objects.get(category=category)
         context['subcategory'] = SubCategoryList.objects.get(subcategory=subcategory)
         context['listing'] = OfferPost.objects.filter(subcategory=subcategory).order_by('-price')
+        return context
+
+
+class SubCategorySortPriceAsc(TemplateView):
+    template_name = 'subcategorysortviewasc.html'
+
+    def get_context_data(self, **kwargs):
+        citykey = self.kwargs['city']
+        city = City.objects.get(city=citykey)
+        categorykey = self.kwargs['category']
+        category = CategoryList.objects.get(category=categorykey)
+        subcategorykey = self.kwargs['subcategory']
+        subcategory = SubCategoryList.objects.get(subcategory=subcategorykey)
+        context = super().get_context_data(**kwargs)
+        context['city'] = City.objects.get(city=city)
+        context['category'] = CategoryList.objects.get(category=category)
+        context['subcategory'] = SubCategoryList.objects.get(subcategory=subcategory)
+        context['listing'] = OfferPost.objects.filter(subcategory=subcategory).order_by('price')
         return context

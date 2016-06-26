@@ -20,7 +20,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from appcatslist.views import IndexView, RegisterView, ProfileView, CityListView, UserProfileView, PostDetailView
 from appcatslist.views import NewPostCategory, NewPostSubCategory, NewPostFinal, CityCategoryListView, CitySubCategoryListView
-from appcatslist.views import SubCategorySortPriceDesc
+from appcatslist.views import SubCategorySortPriceDesc, SubCategorySortPriceAsc
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -36,8 +36,9 @@ urlpatterns = [
     url(r'^cities/(?P<city>\w+)/$', CityListView.as_view(), name='citylistview'),
     url(r'^cities/(?P<city>\w+)/(?P<category>\w+)/$', CityCategoryListView.as_view(), name='citycategorylistview'),
     url(r'^cities/(?P<city>\w+)/(?P<category>\w+)/(?P<subcategory>\w+)/$', CitySubCategoryListView.as_view(), name='citysubcategorylistview'),
-    url(r'^cities/(?P<city>\w+)/(?P<category>\w+)/(?P<subcategory>\w+)/sort/pricedesc/$', SubCategorySortPriceDesc.as_view(), name='subcategorysortpricedesc'),
     # Sort subcategory list
+    url(r'^cities/(?P<city>\w+)/(?P<category>\w+)/(?P<subcategory>\w+)/sort/pricedesc/$', SubCategorySortPriceDesc.as_view(), name='subcategorysortpricedesc'),
+    url(r'^cities/(?P<city>\w+)/(?P<category>\w+)/(?P<subcategory>\w+)/sort/priceasc/$', SubCategorySortPriceAsc.as_view(), name='subcategorysortpriceasc'),
     # Make New Post
     url(r'^newpost/$', NewPostCategory.as_view(), name='newpostcategory'),
     url(r'^newpost/(?P<category>\w+)/$', NewPostSubCategory.as_view(), name='newpostsubcategory'),
