@@ -4,8 +4,8 @@
   <p>Template loaded </p>
   <h3>Displaying items for {{ subcategory }} by price [Lowest-Highest]</h3>
   <p>Sort by:</p>
-  <a class='btn btn-default' href="{% url 'subcategorysortdatethumbview' city category subcategory %}">Date</a>
-  <a class='btn btn-default' href="{% url 'offerpostpricedescthumbview' city category subcategory %}">Price Highest-Lowest</a>
+  <a class='btn btn-default' href="{% url 'subcategorysortdategalleryview' city category subcategory %}">Date</a>
+  <a class='btn btn-default' href="{% url 'offerpostpricedescgalleryview' city category subcategory %}">Price Highest-Lowest</a>
   <p>View as:</p>
   <a class='btn btn-default' href="{% url 'subcategorysortpriceasc' city category subcategory %}">List</a>
   <br>

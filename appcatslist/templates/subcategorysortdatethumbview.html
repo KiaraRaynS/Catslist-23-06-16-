@@ -4,8 +4,8 @@
   <h3>Showing items for {{ subcategory }} by date created</h3>
 
   <p>Sort by:</p>
-  <a class='btn btn-default' href="{% url 'offerpostpriceascthumbview' city category subcategory %}">Price Lowest-Highest</a>
-  <a class='btn btn-default' href="{% url 'offerpostpricedescthumbview' city category subcategory %}">Price Highest-Lowest</a>
+  <a class='btn btn-default' href="{% url 'offerpostpriceascgalleryview' city category subcategory %}">Price Lowest-Highest</a>
+  <a class='btn btn-default' href="{% url 'offerpostpricedescgalleryview' city category subcategory %}">Price Highest-Lowest</a>
   <p>View as:</p>
   <a class='btn btn-default' href="{% url 'citysubcategorylistview' city category subcategory %}">List</a>
   <br>

@@ -199,7 +199,7 @@ class SubCategorySortPriceAsc(TemplateView):
         return context
 
 
-class SubCategorySortDateThumbView(TemplateView):
+class SubCategorySortDateGalleryView(TemplateView):
     template_name = 'subcategorysortdatethumbview.html'
 
     def get_context_data(self, **kwargs):
@@ -217,7 +217,7 @@ class SubCategorySortDateThumbView(TemplateView):
         return context
 
 
-class SubCategorySortPriceAscThumbView(TemplateView):
+class SubCategorySortPriceAscGalleryView(TemplateView):
     template_name = 'subcategorysortpriceascthumbview.html'
 
     def get_context_data(self, **kwargs):
@@ -233,7 +233,7 @@ class SubCategorySortPriceAscThumbView(TemplateView):
         return context
 
 
-class SubCategorySortPriceDescThumbView(TemplateView):
+class SubCategorySortPriceDescGalleryView(TemplateView):
     template_name = 'subcategorysortpricedescthumbview.html'
 
     def get_context_data(self, **kwargs):

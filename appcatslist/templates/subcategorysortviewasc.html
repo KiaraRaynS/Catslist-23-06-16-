@@ -5,7 +5,7 @@
     <a class='btn btn-default' href="{% url 'citysubcategorylistview' city category subcategory %}">Date</a>
     <a class='btn btn-default' href="{% url 'subcategorysortpricedesc' city category subcategory %}">Price Highest-Lowest</a>
    <p>View as:</p>
-    <a class='btn btn-default' href="{% url 'offerpostpriceascthumbview' city category subcategory %}">Thumbnails</a>
+    <a class='btn btn-default' href="{% url 'offerpostpriceascgalleryview' city category subcategory %}">Thumbnails</a>
   <h3>Displaying items for {{ subcategory }}</h3>
   {% for item in listing %}
     <p><b>{{ item.title }}</b> <a href="{% url 'userprofileview' item.user %}">{{item.user}}</a></p>
