@@ -252,10 +252,46 @@ class SubCategorySortPriceDescGalleryView(TemplateView):
 class OfferPostDateSortThumbView(TemplateView):
     template_name = 'offerpostdatesortthumbview.html'
 
+    def get_context_data(self, **kwargs):
+        citykey = self.kwargs['city']
+        categorykey = self.kwargs['category']
+        subcategorykey = self.kwargs['subcategory']
+        subcategory = SubCategoryList.objects.get(subcategory=subcategorykey)
+        context = super().get_context_data(**kwargs)
+        context['city'] = City.objects.get(city=citykey)
+        context['category'] = CategoryList.objects.get(category=categorykey)
+        context['subcategory'] = SubCategoryList.objects.get(subcategory=subcategory)
+        context['offerpost'] = OfferPost.objects.filter(subcategory=subcategory)
+        return context
+
 
 class OfferPostPriceDescThumbView(TemplateView):
     template_name = 'offerpostpricedescthumbview.html'
 
+    def get_context_data(self, **kwargs):
+        citykey = self.kwargs['city']
+        categorykey = self.kwargs['category']
+        subcategorykey = self.kwargs['subcategory']
+        subcategory = SubCategoryList.objects.get(subcategory=subcategorykey)
+        context = super().get_context_data(**kwargs)
+        context['city'] = City.objects.get(city=citykey)
+        context['category'] = CategoryList.objects.get(category=categorykey)
+        context['subcategory'] = SubCategoryList.objects.get(subcategory=subcategory)
+        context['offerpost'] = OfferPost.objects.filter(subcategory=subcategory)
+        return context
+
 
 class OfferPostPriceAscThumbView(TemplateView):
     template_name = 'offerpostpriceascthumbview.html'
+
+    def get_context_data(self, **kwargs):
+        citykey = self.kwargs['city']
+        categorykey = self.kwargs['category']
+        subcategorykey = self.kwargs['subcategory']
+        subcategory = SubCategoryList.objects.get(subcategory=subcategorykey)
+        context = super().get_context_data(**kwargs)
+        context['city'] = City.objects.get(city=citykey)
+        context['category'] = CategoryList.objects.get(category=categorykey)
+        context['subcategory'] = SubCategoryList.objects.get(subcategory=subcategorykey)
+        context['offerpost'] = OfferPost.objects.filter(subcategory=subcategory)
+        return context

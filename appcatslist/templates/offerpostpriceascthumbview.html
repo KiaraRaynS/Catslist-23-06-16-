@@ -4,4 +4,14 @@
   <p>View as:</p>
   <a class='btn btn-default' href="{% url 'subcategorysortpriceasc' city category subcategory %}">List</a>
   <a class='btn btn-default' href="{% url 'offerpostpriceascgalleryview' city category subcategory %}">Gallery</a>
+  <hr>
+
+  {% for item in offerpost %}
+  <div class="panel panel-default">
+      <div class="panel-body">
+        <img class='smallthumb' src={{item.photo_url}}> <a href="{% url 'userprofileview' item.user %}">{{item.user}}</a> {{item.price}}
+              </div>
+              <div class="panel-footer"><a href="{% url 'postdetailview' item.id %}">Details</a> {{item.date}}</div>
+              </div>
+  {% endfor %}
 {% endblock %}
