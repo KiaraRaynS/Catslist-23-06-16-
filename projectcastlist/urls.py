@@ -24,7 +24,8 @@ from appcatslist.views import SubCategorySortPriceDesc, SubCategorySortPriceAsc,
 from appcatslist.views import SubCategorySortPriceDescGalleryView
 from appcatslist.views import OfferPostDateSortThumbView, OfferPostPriceDescThumbView, OfferPostPriceAscThumbView
 from apicatslist.views import CategoryListAPIView, CategoryListDetailAPIView
-from apicatslist.views import SubCategoryListAPIView
+from apicatslist.views import SubCategoryListAPIView, SubCategoryListDetailAPIView
+from apicatslist.views import OfferPostListAPIView, OfferPostDetailAPIView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -60,4 +61,7 @@ urlpatterns = [
     url(r'^api/categories/$', CategoryListAPIView.as_view()),
     url(r'^api/categories/(?P<pk>\d+)/$', CategoryListDetailAPIView.as_view(), name='categorylistdetailapiview'),
     url(r'^api/subcategories/$', SubCategoryListAPIView.as_view(), name='subcategorylistapiview'),
+    url(r'^api/subcategories/(?P<pk>\d+)/$', SubCategoryListDetailAPIView.as_view(), name='subcategorylistdetailapiview'),
+    url(r'^api/offerposts/$', OfferPostListAPIView.as_view(), name='offerpostlistapiview'),
+    url(r'^api/offerposts/(?P<pk>\d+)/$', OfferPostDetailAPIView.as_view(), name='offerpostdetailview'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -12,3 +12,9 @@ class SubCategoryListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = SubCategoryList
+
+
+class OfferPostSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = OfferPost
