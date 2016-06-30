@@ -34,5 +34,10 @@ class OfferPostDetailAPIView(generics.RetrieveAPIView):
     serializer_class = OfferPostSerializer
 
 
-class OfferPostListBySubCategory(generics.ListAPIView):
-    pass
+class OfferPostBySubCategoryListAPIView(generics.ListAPIView):
+    serializer_class = OfferPostSerializer
+
+    def get_queryset(self):
+        subcategory = self.kwargs['subcategory']
+        print(subcategory)
+        return OfferPost.objects.filter(subcategory__subcategory=subcategory)

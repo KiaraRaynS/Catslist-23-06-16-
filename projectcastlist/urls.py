@@ -26,6 +26,8 @@ from appcatslist.views import OfferPostDateSortThumbView, OfferPostPriceDescThum
 from apicatslist.views import CategoryListAPIView, CategoryListDetailAPIView
 from apicatslist.views import SubCategoryListAPIView, SubCategoryListDetailAPIView
 from apicatslist.views import OfferPostListAPIView, OfferPostDetailAPIView
+from apicatslist.views import OfferPostBySubCategoryListAPIView
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -64,4 +66,5 @@ urlpatterns = [
     url(r'^api/subcategories/(?P<pk>\d+)/$', SubCategoryListDetailAPIView.as_view(), name='subcategorylistdetailapiview'),
     url(r'^api/offerposts/$', OfferPostListAPIView.as_view(), name='offerpostlistapiview'),
     url(r'^api/offerposts/(?P<pk>\d+)/$', OfferPostDetailAPIView.as_view(), name='offerpostdetailview'),
+    url(r'^api/(?P<subcategory>\w+)/offerposts/$', OfferPostBySubCategoryListAPIView.as_view(), name='offerpostbysubcategorylistapiview'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
