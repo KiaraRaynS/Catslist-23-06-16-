@@ -23,6 +23,7 @@ from appcatslist.views import NewPostCategory, NewPostSubCategory, NewPostFinal,
 from appcatslist.views import SubCategorySortPriceDesc, SubCategorySortPriceAsc, SubCategorySortDateGalleryView, SubCategorySortPriceAscGalleryView
 from appcatslist.views import SubCategorySortPriceDescGalleryView
 from appcatslist.views import OfferPostDateSortThumbView, OfferPostPriceDescThumbView, OfferPostPriceAscThumbView
+from apicatslist.views import CategoryListAPIView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -53,5 +54,7 @@ urlpatterns = [
     url(r'^newpost/$', NewPostCategory.as_view(), name='newpostcategory'),
     url(r'^newpost/(?P<category>\w+)/$', NewPostSubCategory.as_view(), name='newpostsubcategory'),
     url(r'^newpost/(?P<category>\w+)/(?P<subcategory>\w+)/$', NewPostFinal.as_view(), name='newpostfinal'),
-    url(r'^postdetail/(?P<pk>\d+)/$', PostDetailView.as_view(), name='postdetailview')
+    url(r'^postdetail/(?P<pk>\d+)/$', PostDetailView.as_view(), name='postdetailview'),
+    # Api Views
+    url(r'^api/categories/$', CategoryListAPIView.as_view()),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
