@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import IsAuthenticated
 from rest_framework import generics, filters
 from appcatslist.models import CategoryList, SubCategoryList, OfferPost
 from apicatslist.serializers import CategoryListSerializer, SubCategoryListSerializer, OfferPostSerializer
@@ -29,7 +31,7 @@ class OfferPostListAPIView(generics.ListAPIView):
     serializer_class = OfferPostSerializer
 
 
-class OfferPostDetailAPIView(generics.RetrieveAPIView):
+class OfferPostDetailAPIView(generics.RetrieveUpdateAPIView):
     queryset = OfferPost.objects.all()
     serializer_class = OfferPostSerializer
 
