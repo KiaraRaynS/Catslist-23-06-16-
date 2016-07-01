@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from rest_framework.authentication import SessionAuthentication
 from rest_framework.permissions import IsAuthenticated, BasePermission
 from rest_framework import generics, authentication, permissions
 from appcatslist.models import CategoryList, SubCategoryList, OfferPost
@@ -34,7 +35,7 @@ class OfferPostListAPIView(generics.ListAPIView):
 class OfferPostDetailAPIView(generics.RetrieveUpdateAPIView):
     queryset = OfferPost.objects.all()
     serializer_class = OfferPostSerializer
-    authentication_classes = (authentication.TokenAuthentication, )
+    authentication_classes = (authentication.TokenAuthentication, SessionAuthentication)
     permission_classes = (CanPost,)
 
 
