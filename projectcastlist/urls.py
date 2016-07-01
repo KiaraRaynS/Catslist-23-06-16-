@@ -27,6 +27,7 @@ from apicatslist.views import CategoryListAPIView, CategoryListDetailAPIView
 from apicatslist.views import SubCategoryListAPIView, SubCategoryListDetailAPIView
 from apicatslist.views import OfferPostListAPIView, OfferPostDetailAPIView
 from apicatslist.views import OfferPostBySubCategoryListAPIView, OfferPostByCategoryListAPIView
+from apicatslist.views import OfferPostCreateNewPostAPIView
 
 
 urlpatterns = [
@@ -67,5 +68,6 @@ urlpatterns = [
     url(r'^api/offerposts/$', OfferPostListAPIView.as_view(), name='offerpostlistapiview'),
     url(r'^api/offerposts/(?P<pk>\d+)/$', OfferPostDetailAPIView.as_view(), name='offerpostdetailview'),
     url(r'^api/subcategories/(?P<pk>\d+)/offerposts/$', OfferPostBySubCategoryListAPIView.as_view(), name='offerpostbysubcategorylistapiview'),
-    url(r'^api/categories/(?P<pk>\d+)/offerposts/$', OfferPostByCategoryListAPIView.as_view(), name='offerpostbycategorylistapiview')
+    url(r'^api/categories/(?P<pk>\d+)/offerposts/$', OfferPostByCategoryListAPIView.as_view(), name='offerpostbycategorylistapiview'),
+    url(r'^api/offerposts/newpost/$', OfferPostCreateNewPostAPIView.as_view(), name='offerpostcreatenewpostapiview'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

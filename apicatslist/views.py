@@ -50,3 +50,13 @@ class OfferPostByCategoryListAPIView(generics.ListAPIView):
     def get_queryset(self):
         category = self.kwargs['pk']
         return OfferPost.objects.filter(subcategory__category=category)
+
+
+# @api_view(['GET', 'PUT'])
+# @permission_classes((IsAuthenticated))
+class OfferPostCreateNewPostAPIView(generics.CreateAPIView):
+    serializer_class = OfferPostSerializer
+
+    def get_queryset(self):
+        user = self.request.user
+        return OfferPost.objects.filter(user=user)
