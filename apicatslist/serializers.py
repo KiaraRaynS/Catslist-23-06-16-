@@ -15,9 +15,9 @@ class SubCategoryListSerializer(serializers.ModelSerializer):
 
 
 class OfferPostSerializer(serializers.ModelSerializer):
-    user = serializers.HiddenField(
-                default=serializers.CurrentUserDefault()
-                )
+    # user = serializers.HiddenField(
+    #             default=serializers.CurrentUserDefault()
+    #             )
 
     class Meta:
         model = OfferPost

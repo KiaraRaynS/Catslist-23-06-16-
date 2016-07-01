@@ -9,3 +9,5 @@ def usertoken(**kwargs):
     instance = kwargs.get('instance')
     if created:
         Token.objects.create(user=instance)
+
+
