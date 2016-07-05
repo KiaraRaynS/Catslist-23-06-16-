@@ -60,3 +60,4 @@ class OfferPostByCategoryListAPIView(generics.ListAPIView):
 class OfferPostCreateNewPostAPIView(generics.CreateAPIView):
     serializer_class = OfferPostSerializer
     authentication_classes = (authentication.TokenAuthentication, )
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly, )
